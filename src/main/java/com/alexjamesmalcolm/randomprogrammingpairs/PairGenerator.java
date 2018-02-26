@@ -6,13 +6,13 @@ import java.util.Random;
 
 public class PairGenerator {
 
-	private ArrayList<String> classmates = new ArrayList<>();
+	private ArrayList<Person> classmates = new ArrayList<>();
 
-	public PairGenerator(ArrayList<String> classmates, boolean isRandom) {
+	public PairGenerator(ArrayList<Person> classmates, boolean isRandom) {
 		if (isRandom) {
 			Random rng = new Random();
 			for(int i = 0; i < classmates.size(); i++) {
-				String classmate = classmates.get(i);
+				Person classmate = classmates.get(i);
 				boolean coinFlip = rng.nextBoolean();
 				if(coinFlip) {
 					this.classmates.add(0, classmate);
@@ -21,14 +21,14 @@ public class PairGenerator {
 				}
 			}
 		} else {
-			this.classmates = (ArrayList<String>) classmates;
+			this.classmates = (ArrayList<Person>) classmates;
 		}
 	}
 
-	public Collection<Collection<String>> getPairs() {
-		Collection<Collection<String>> pairs = new ArrayList<Collection<String>>();
+	public Collection<Collection<Person>> getPairs() {
+		Collection<Collection<Person>> pairs = new ArrayList<Collection<Person>>();
 		for (int i = 0; i < classmates.size(); i += 2) {
-			Collection<String> pair = new ArrayList<>();
+			Collection<Person> pair = new ArrayList<>();
 			pair.add(classmates.get(i));
 			pair.add(classmates.get(i + 1));
 			if (classmates.size() - i == 3) {
