@@ -7,7 +7,6 @@ import static org.junit.Assert.assertThat;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,6 +23,8 @@ public class PairGeneratorTest {
 	
 	@Test
 	public void shouldReturnCollectionOfPairs() {
+		classmates.add("Alex Richards");
+		classmates.add("Jacob");
 		PairGenerator underTest = new PairGenerator(classmates);
 		Collection<Collection<String>> pairs = underTest.getPairs();
 		assertThat(pairs.isEmpty(), is(false));
@@ -39,5 +40,16 @@ public class PairGeneratorTest {
 		pair.add("Ryan");
 		Collection<Collection<String>> pairs = underTest.getPairs();
 		assertThat(pairs, containsInAnyOrder(pair));
+	}
+	
+	@Test
+	public void shouldBeHalfTheLengthOfTheNumberOfClassmates() {
+		classmates.add("Alex Richards");
+		classmates.add("Jacob");
+		classmates.add("Alex Malcolm");
+		classmates.add("Ryan");
+		PairGenerator underTest = new PairGenerator(classmates);
+		Collection<Collection<String>> pairs = underTest.getPairs();
+		assertThat(pairs.size(), is(2));
 	}
 }

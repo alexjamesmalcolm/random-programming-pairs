@@ -5,16 +5,21 @@ import java.util.Collection;
 
 public class PairGenerator {
 
-	private Collection<String> classmates;
+	private ArrayList<String> classmates;
 
 	public PairGenerator(Collection<String> classmates) {
-		this.classmates = classmates;
+		this.classmates = (ArrayList<String>) classmates;
 	}
 
 	public Collection<Collection<String>> getPairs() {
-		 Collection<Collection<String>> results = new ArrayList<Collection<String>>();
-		 results.add(classmates);
-		 return results;
+		Collection<Collection<String>> pairs = new ArrayList<Collection<String>>();
+		for (int i = 0; i < classmates.size(); i += 2) {
+			Collection<String> pair = new ArrayList<>();
+			pair.add(classmates.get(i));
+			pair.add(classmates.get(i + 1));
+			pairs.add(pair);
+		}
+		return pairs;
 	}
 
 }
