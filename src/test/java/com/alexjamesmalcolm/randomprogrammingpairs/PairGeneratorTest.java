@@ -52,4 +52,16 @@ public class PairGeneratorTest {
 		Collection<Collection<String>> pairs = underTest.getPairs();
 		assertThat(pairs.size(), is(2));
 	}
+	
+	@Test
+	public void shouldHaveTheStooges() {
+		classmates.add("Alex Richards");
+		classmates.add("Jacob");
+		classmates.add("Alex Malcolm");
+		classmates.add("Ryan");
+		classmates.add("Susan");
+		PairGenerator underTest = new PairGenerator(classmates);
+		Collection<Collection<String>> pairs = underTest.getPairs();
+		assertThat(pairs.size(), is(2));
+	}
 }

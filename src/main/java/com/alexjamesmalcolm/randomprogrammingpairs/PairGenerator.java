@@ -17,6 +17,10 @@ public class PairGenerator {
 			Collection<String> pair = new ArrayList<>();
 			pair.add(classmates.get(i));
 			pair.add(classmates.get(i + 1));
+			if(classmates.size() - i == 3) {
+				pair.add(classmates.get(i + 2));
+				i++;
+			}
 			pairs.add(pair);
 		}
 		return pairs;
