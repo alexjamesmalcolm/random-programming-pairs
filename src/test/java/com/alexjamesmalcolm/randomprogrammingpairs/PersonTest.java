@@ -14,4 +14,12 @@ public class PersonTest {
 		String returnedName = underTest.getName();
 		assertThat(returnedName, is(name));
 	}
+
+	@Test
+	public void shouldHaveNameRyan() {
+		String name = "Ryan";
+		Person underTest = new Person(name);
+		String returnedName = underTest.getName();
+		assertThat(returnedName, is(name));
+	}
 }
